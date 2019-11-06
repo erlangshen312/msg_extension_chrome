@@ -1,0 +1,78 @@
+body {
+    margin: 10px;
+}
+
+.lnr-arrow-right {
+    font-size: 20px;
+    font-weight: 900;
+    outline-width: thin;
+    border: 1px solid #dcdada;
+    padding: 5px;
+}
+
+button::before {
+    content: '';
+    /* position: absolute; */
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+
+.button:hover::after,
+.button:focus::after {
+    animation: sheen 1s forwards;
+}
+
+.title {
+    font-size: 24px;
+    margin: 5px;
+}
+
+.productTitle {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.inputBody {
+    border: none;
+    border-bottom: 1px solid;
+    border-color: #dcdada;
+}
+
+.inputBody :active,
+ :hover,
+ :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+button {
+    outline: none;
+    /* color: #fff; */
+    color: rgb(18, 192, 48);
+    background-color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+}
+
+
+/* button::before:hover {
+    background-color: rgb(11, 168, 37);
+    ;
+}
+
+button::after:hover {
+    background-color: rgb(5, 202, 38);
+    ;
+} */
+
+.imageSize {
+    width: 2em;
+    height: 2em;
+    padding: 2px;
+    margin: 2px;
+}

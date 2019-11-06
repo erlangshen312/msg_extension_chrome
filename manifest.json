@@ -1,6 +1,6 @@
 {
-    "name": "Whatsapp Finder",
-    "description": "Demonstrates usage and features of the event page by reminding user to drink water",
+    "name": "Messenger Finder",
+    "description": "Will help for some person who very used messengers/chats for finding person(account) without adding or saving number to contact on mobile phone!",
     "version": "1.0",
     "manifest_version": 2,
     "permissions": ["tab", "storage"],
@@ -9,7 +9,7 @@
         "persistent": false
     },
     "browser_action": {
-        "default_title": "Drink Water Event",
+        "default_title": "Messenger Finder",
         "default_popup": "popup.html"
     },
     "icons": {

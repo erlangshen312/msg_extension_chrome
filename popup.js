@@ -40,6 +40,67 @@ function processTelegram() {
 
 document.getElementById("checkTelegram").onclick = processTelegram;
 
+
+//Messenger
+function processMessenger() {
+    const value = document.getElementById("urlMessenger").value
+    console.log(value);
+    // const number = value.replace(/[^\/\d]/g, '');
+    const url = "https://www.facebook.com/mme_redirect/?username=" + value;
+    console.log(url);
+    // document.getElementById('country').value = 996;
+
+    if (value.length != 0 && value.length > 6) {
+        setStorage(value);
+        getStorage();
+        chrome.tabs.create({ url: url }); //create a new tab
+
+    }
+}
+
+document.getElementById("checkMessenger").onclick = processMessenger;
+
+//Viber
+function processViber() {
+    const number = document.getElementById("urlViber").value
+    console.log(number);
+    // const number = value.replace(/[^\/\d]/g, '');
+    const url = "https://viber://chat?number=" + number;
+    console.log(url);
+    // document.getElementById('country').value = 996;
+
+    if (number.length != 0 && number.length > 6) {
+        setStorage(number);
+        getStorage();
+        chrome.tabs.create({ url: url }); //create a new tab
+
+    }
+}
+
+document.getElementById("checkViber").onclick = processViber;
+
+//Wechat
+function processWechat() {
+    const number = document.getElementById("urlWechat").value
+    console.log(number);
+    // const number = value.replace(/[^\/\d]/g, '');
+    const url = "https://api.whatsapp.com/send?phone=" + number;
+    console.log(url);
+    // document.getElementById('country').value = 996;
+
+    if (number.length != 0 && number.length > 6) {
+        setStorage(number);
+        getStorage();
+        chrome.tabs.create({ url: url }); //create a new tab
+
+    }
+}
+
+document.getElementById("checkWechat").onclick = processWechat;
+
+
+
+
 function setStorage(item) {
 
     chrome.storage.sync.set({ 'value': item });

@@ -13,9 +13,9 @@
         "default_popup": "popup.html"
     },
     "icons": {
-        "16": "whatsapp.png",
-        "32": "whatsapp.png",
-        "48": "whatsapp.png",
-        "128": "whatsapp.png"
+        "16": "./icons/whatsapp.png",
+        "32": "./icons/whatsapp.png",
+        "48": "./icons/whatsapp.png",
+        "128": "./icons/whatsapp.png"
     }
 }

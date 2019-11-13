@@ -1,5 +1,6 @@
+html,
 body {
-    margin: 10px;
+    padding: 10px;
 }
 
 hr {
@@ -15,8 +16,17 @@ hr {
 }
 
 .title {
-    font-size: 24px;
+    font-size: 18px;
     margin: 5px;
+}
+
+.block {
+    display: flex;
+    padding: 5px;
+    /* flex-direction: row;
+    flex: 1 auto;
+    justify-content: space-around;
+    width: 100%; */
 }
 
 .productTitle {
@@ -35,23 +45,6 @@ hr {
  :focus {
     outline: 0;
     outline-offset: 0;
-}
-
-button {
-    outline: none;
-    /* color: #fff; */
-    color: #dcdada;
-    background-color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-}
-
-button:focus:hover {
-    content: '';
-    /* position: absolute; */
-    background: linear-gradient(to bottom, rgba(9, 142, 231, 0), rgba(255, 255, 255, 0.5) 50%, rgba(0, 88, 170, 0));
-    /* transform: rotateZ(60deg) translate(-5em, 7.5em); */
 }
 
 

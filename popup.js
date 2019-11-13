@@ -13,10 +13,19 @@ function processWhatsApp() {
     if (value.length != 0 && value.length > 6) {
         setStorage(value, type);
         getStorage();
-        // chrome.tabs.create({ url: url }); //create a new tab
+        chrome.tabs.create({ url: url }); //create a new tab
     }
 }
-document.getElementById("checkWhatsApp").onclick = processWhatsApp;
+// document.getElementById("checkWhatsApp").onclick = processWhatsApp;
+document.getElementById('urlWhatsApp').onkeypress = function(e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13') {
+        processWhatsApp()
+        return false;
+    }
+}
+
 
 //Telegram
 function processTelegram() {
@@ -29,33 +38,57 @@ function processTelegram() {
         chrome.tabs.create({ url: url }); //create a new tab
     }
 }
-document.getElementById("checkTelegram").onclick = processTelegram;
+// document.getElementById("checkTelegram").onclick = processTelegram;
+document.getElementById('urlTelegram').onkeypress = function(e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13') {
+        processTelegram()
+        return false;
+    }
+}
 
 //Messenger
 function processMessenger() {
     const type = "Messenger";
     const value = document.getElementById("urlMessenger").value
-    const url = "https://www.facebook.com/mme_redirect/?username=" + value;
+    const url = "https://m.me/" + value;
     if (value.length != 0 && value.length > 6) {
         setStorage(type, value);
         getStorage();
         chrome.tabs.create({ url: url }); //create a new tab
     }
 }
-document.getElementById("checkMessenger").onclick = processMessenger;
+// document.getElementById("checkMessenger").onclick = processMessenger;
+document.getElementById('urlMessenger').onkeypress = function(e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13') {
+        processMessenger()
+        return false;
+    }
+}
 
 //Viber
 function processViber() {
     const type = "Viber";
     const value = document.getElementById("urlViber").value
-    const url = "https://viber://chat?number=" + value;
+    const url = "viber://pa?chatURI=" + value;
     if (value.length != 0 && value.length > 6) {
         setStorage(value);
         getStorage();
         chrome.tabs.create({ url: url }); //create a new tab
     }
 }
-document.getElementById("checkViber").onclick = processViber;
+// document.getElementById("checkViber").onclick = processViber;
+document.getElementById('urlViber').onkeypress = function(e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13') {
+        processViber()
+        return false;
+    }
+}
 
 //Wechat
 // function processWechat() {
@@ -72,13 +105,14 @@ document.getElementById("checkViber").onclick = processViber;
 
 function setStorage(value, type) {
     const setValue = {
-        key: type,
-        value: value
-    }
-    for (var i = 0; i < setValue.length; i++) {
-        console.log(setValue)
-        chrome.storage.sync.set([setValue]);
-    }
+            key: type,
+            value: value
+        }
+        // for (var i = 0; i < setValue.length; i++) {
+        //     console.log(setValue)
+        // }
+    chrome.storage.sync.set(setValue);
+
     // chrome.storage.sync.set({
     //     type: function() {
     //         for (var i = 0; i < type.length; i++){
@@ -107,11 +141,11 @@ function setStorage(value, type) {
 function getStorage() {
     chrome.storage.sync.get(null, function(data) {
         console.log(data);
-        // const allKeys = Object.keys(data.value);
-        // const items = allKeys.map(item, () => {
-        //     return item
+        const allKeys = Object.keys(data.value);
+        // const items = data.map(item, () => {
+        //     return item.type
         // })
-        // document.getElementById("listOfData").innerText = items;
+        document.getElementById("listOfData").innerText = allKeys;
     });
 }
 

@@ -69,6 +69,27 @@ document.getElementById('urlMessenger').onkeypress = function(e) {
     }
 }
 
+//Messenger
+function processInstagram() {
+    const type = "Instagram";
+    const value = document.getElementById("urlInstagram").value
+    const url = "https://instagram.com/" + value;
+    if (value.length != 0 && value.length > 6) {
+        setStorage(type, value);
+        getStorage();
+        chrome.tabs.create({ url: url }); //create a new tab
+    }
+}
+// document.getElementById("checkInstagram").onclick = processMessenger;
+document.getElementById('urlInstagram').onkeypress = function(e) {
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13') {
+        processInstagram()
+        return false;
+    }
+}
+
 //Viber
 function processViber() {
     const type = "Viber";

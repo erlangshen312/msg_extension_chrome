@@ -1,4 +1,4 @@
-# MESSENGER FINDER
+# MSG EXTENSION
 
 ##MISSION
  - Will help for some person who very used messengers/chats for finding person(account) 
